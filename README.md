@@ -80,7 +80,7 @@ bash install.sh --linux or mac --golang --python or python-alter
 ```
 
 # Author
-- **GitHub**: [@nahid0x1](https://github.com/nahid0x1)
-- **Twitter**: [@nahid0x1](https://x.com/nahid0x1)
-- **Linkedin**: [@nahid0x1](https://www.linkedin.com/in/nahid0x1)
+- **GitHub**: [@l1ackerronin](https://github.com/l1ackerronin)
+- **Twitter**: [@l1ackerronin](https://x.com/l1ackerronin)
+- **Linkedin**: [@l1ackerronin](https://www.linkedin.com/in/l1ackerronin)
 - **Email**: [nahid0x1.official@gmail.com](mailto:nahid0x1.official@gmail.com)
