@@ -270,6 +270,38 @@ update_golang_tools() {
     IFS=$OLD_IFS
 }
 
+# Install specific Go Tools from a comma-separated list
+install_golang_tools() {
+    local tool_list_string="$1"
+    local OLD_IFS=$IFS
+    IFS=','
+    
+    for tool_to_install in $tool_list_string; do
+        if [[ -v "GOLANG_TOOLS[$tool_to_install]" ]]; then
+            local tool_url="${GOLANG_TOOLS[$tool_to_install]}"
+            local TOOL_PATH="$HOME/go/bin/$tool_to_install"
+            
+            if [[ -f "$TOOL_PATH" ]]; then
+                echo -e "${info} ${YELLOW}'${tool_to_install}' is already installed. ${GREEN}[SKIPPED]${WHITE}"
+            else
+                echo -e "${info} ${CYAN}Installing '${tool_to_install}'...${WHITE}"
+                
+                go install -v "${tool_url}@latest"
+                
+                if [[ -f "$TOOL_PATH" ]]; then
+                    echo -e "${info} ${GREEN}'${tool_to_install}' has been successfully installed.${WHITE}"
+                else
+                    echo -e "${info} ${RED}Failed to install '${tool_to_install}'.${WHITE}"
+                fi
+            fi
+        else
+            echo -e "${info} ${RED}Error: Tool '${tool_to_install}' not found in the list.${WHITE}"
+        fi
+        echo -e "${PURPLE}--------------------------------------------------${WHITE}"
+    done
+    IFS=$OLD_IFS
+}
+
 #python pip3
 python_tools(){
     pip3 install uro subcat
@@ -394,6 +426,8 @@ show_help() {
     echo "  --python_alternate        Install Python tools (alternate method if error)"
     echo "  --update [tool1,tool2,...]  Update specific Go tools from a comma-separated list."
     echo "                              Example: $name --update nuclei,subfinder,httpx"
+    echo "  --install [tool1,tool2,...] Install specific Go tools from a comma-separated list."
+    echo "                              Example: $name --install anew,httpx"
     echo "  --tools                   Show Tools List"
     echo "  --help                    Show this help screen"
     exit 1
@@ -412,14 +446,23 @@ while [[ $# -gt 0 ]]; do
         --golang) golang_tools ;;
         --python) python_tools ;;
         --python_alternate) python_alternate ;;
-        --tools) show_tools ;;              # <-- new option
-        -i)
+        --tools) show_tools ;;
+        --update)
             if [[ -z "$2" || "$2" == --* ]]; then
                 echo -e "${RED}Error: --update flag requires a comma-separated list of tool names.${WHITE}" >&2
                 show_help
                 exit 1
             fi
             update_golang_tools "$2"
+            shift # Consume tool_list argument
+            ;;
+        --install)
+            if [[ -z "$2" || "$2" == --* ]]; then
+                echo -e "${RED}Error: --install flag requires a comma-separated list of tool names.${WHITE}" >&2
+                show_help
+                exit 1
+            fi
+            install_golang_tools "$2"
             shift # Consume tool_list argument
             ;;
         --help) show_help ;;
