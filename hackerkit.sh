@@ -117,6 +117,7 @@ declare -A GOLANG_TOOLS=(
     ["wordcount"]="github.com/rix4uni/wordcount@latest"
     ["vulntechfinder"]="github.com/rix4uni/vulntechfinder@latest"
     ["techfinder"]="github.com/rix4uni/techfinder@latest"
+    ["smap"]="github.com/s0md3v/smap/cmd/smap@latest"
 )
 
 
