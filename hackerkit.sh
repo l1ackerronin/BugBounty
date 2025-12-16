@@ -114,6 +114,7 @@ declare -A GOLANG_TOOLS=(
     ["waybackurlsx"]="github.com/rix4uni/waybackurlsx@latest"
     ["portmap"]="github.com/rix4uni/portmap@latest"
     ["gungnir"]="github.com/g0ldencybersec/gungnir/cmd/gungnir@latest"
+    ["wordcount"]="github.com/rix4uni/wordcount@latest"
 )
 
 
