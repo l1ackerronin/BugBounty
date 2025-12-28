@@ -83,4 +83,5 @@ bash install.sh --linux or mac --golang --python or python-alter
 - **GitHub**: [@l1ackerronin](https://github.com/l1ackerronin)
 - **Twitter**: [@l1ackerronin](https://x.com/l1ackerronin)
 - **Linkedin**: [@l1ackerronin](https://www.linkedin.com/in/l1ackerronin)
-- **Email**: [nahid0x1.official@gmail.com](mailto:nahid0x1.official@gmail.com)
+- **Instagram**: [@l1ackerronin](https://www.instagram.com/l1ackerronin)
+- **Email**: [l1ackerronin@gmail.com](mailto:l1ackerronin@gmail.com)
