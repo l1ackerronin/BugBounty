@@ -160,7 +160,7 @@ requirement_linux(){
     requirement_tools=(
         python3 python3-pip git golang massdns snapd knockpy host nmap
         photon arjun dnsutils dnsutils dirb cewl feroxbuster jq npm
-        chromium-browser fish parallel tmux unzip make gcc
+        chromium fish parallel tmux unzip make gcc
     )
     # Note: 'host' and 'dig' are often in the 'dnsutils' or 'bind9-utils' package. 'snap' command is in 'snapd'.
 
